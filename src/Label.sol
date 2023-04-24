@@ -8,8 +8,11 @@ import{Counters} from "openzeppelin-contracts/utils/Counters.sol";
 
 contract Label is ERC721, Ownable{
     using Counters for Counters.Counter;
+
     Counters.Counter private _IdCounter;
+
     address public DaoAddress;
+
     constructor(address daoAddres) ERC721("label","LBL"){
        DaoAddress = daoAddres;
     }
@@ -19,4 +22,8 @@ contract Label is ERC721, Ownable{
         _IdCounter.increment();
         _safeMint(DaoAddress,Id);
     }
+
+    // function _burn(uint256 tokenId) internal override(ERC721) onlyOwner {
+    //     super._burn(tokenId);
+    // }
 }
