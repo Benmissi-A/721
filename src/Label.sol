@@ -9,11 +9,14 @@ import{Counters} from "openzeppelin-contracts/utils/Counters.sol";
 contract Label is ERC721, Ownable{
     using Counters for Counters.Counter;
     Counters.Counter private _IdCounter;
-    constructor() ERC721("label","LBL"){}
+    address public DaoAddress;
+    constructor(address daoAddres) ERC721("label","LBL"){
+       DaoAddress = daoAddres;
+    }
 
-    function safeMint(address to, string memory uri) public onlyOwner {
+    function safeMint() public onlyOwner {
         uint256 Id = _IdCounter.current();
         _IdCounter.increment();
-        _safeMint(Owner,Id);
+        _safeMint(DaoAddress,Id);
     }
 }
