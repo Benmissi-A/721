@@ -26,4 +26,5 @@ contract Label is ERC721, Ownable{
     // function _burn(uint256 tokenId) internal override(ERC721) onlyOwner {
     //     super._burn(tokenId);
     // }
+    //
 }
